@@ -1,10 +1,10 @@
 var request = require('supertest')
 
-var app = 'http://localhost:8787';
+var fileApp = 'http://localhost:8787';
 
 describe('GET /folders', function () {
   it('should return folder id', function(done){
-      request(app)
+      request(fileApp)
         .get('/api/v1/folders')
         .set('Content-Type', 'application/json')
         .query({ type: 'root' })
@@ -16,7 +16,7 @@ describe('GET /folders', function () {
 
 describe('GET /media/{id}', function () {
   it('should return media id and type', function(done){
-      request(app)
+      request(fileApp)
         .get('/api/v1/media/111')
         .set('Content-Type', 'application/json')
         .expect(200, {
